@@ -5,7 +5,7 @@ import dataActions from '../actions/data'
 import Http from './Http'
 import Chart from './Chart'
 
-let select = (state) => state // ({ chart: state.chart, data: state.data })
+let select = (state) => ({ chart: state.chart, data: state.data })
 
 export class Home extends Component {
 	render() {
