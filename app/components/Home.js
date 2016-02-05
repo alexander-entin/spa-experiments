@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import controlActions from '../actions/control'
+import dataActions from '../actions/data'
+import Http from './Http'
 import Chart from './Chart'
 
-let select = (state) => state.chart
+let select = (state) => state // ({ chart: state.chart, data: state.data })
 
 export class Home extends Component {
 	render() {
@@ -13,23 +15,29 @@ export class Home extends Component {
 		let background = { background: '#dddddd' }
 		return (
 			<div>
+				<Http
+					uri={props.data}
+					onSuccess={props.DATA_LOAD}
+				/>
 				<div style={{...padding, ...background}}>
 					{types.map((x) => (
 						<label key={x} style={padding}>
-							<input type="radio" name="site_name"
+							<input type="radio" name="chart-type"
 								id={x}
 								value={x}
-								checked={x === props.data.type}
-								onChange={() => props.CHART_TYPE(x)}
+								checked={x === props.chart.data.type}
+								onChange={() => {
+									return props.CHART_TYPE(x)
+								}}
 							/>
 							{x}
 						</label>
 					))}
 				</div>
-				<Chart id="chart" {...this.props} />
+				<Chart id="chart" {...props.chart} />
 			</div>
 		)
 	}
 }
 
-export default connect(select, controlActions)(Home)
+export default connect(select, { ...controlActions, ...dataActions })(Home)

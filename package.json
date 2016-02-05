@@ -76,6 +76,7 @@
     "redux-devtools": "^3.0.1",
     "redux-devtools-log-monitor": "^1.0.2",
     "redux-simple-router": "^1.0.2",
-    "webpack": "^1.12.11"
+    "webpack": "^1.12.11",
+    "xhr": "^2.2.0"
   }
 }

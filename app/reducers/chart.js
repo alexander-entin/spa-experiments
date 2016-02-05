@@ -12,5 +12,5 @@ const initialState = {
 }
 
 export default createReducer(initialState, {
-	CHART_TYPE: (chart, action) => ({ ...chart, data: { ...chart.data, type: action.data } })
+	DATA_LOAD: (chart, action) => ({ ...chart, data: { ...chart.data, type: action.data.url } })
 })

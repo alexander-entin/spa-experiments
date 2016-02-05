@@ -44,6 +44,17 @@ export function combineReducers(reducers) {
         		let errorMessage = getUndefinedStateErrorMessage(key, action)
         		throw new Error(errorMessage)
       		}
+      		let { effects } = nextStateForKey
+      		if (effects) {
+      			nextStateForKey = nextStateForKey.state
+      			if (nextStateForKey === undefined) nextStateForKey = previousStateForKey
+      			let previousEffects = finalState.effects
+      			let nextEffects = R.mapObjIndexed((newEffectsForDriver, driver) => (
+      				[...previousEffects[driver], ...newEffectsForDriver]
+      			), effects)
+      			finalState.effects = { ...previousEffects, nextEffects }
+      			hasChanged = true
+      		}
       		if (nextStateForKey !== previousStateForKey) {
       			finalState[key] = nextStateForKey
       			hasChanged = true
