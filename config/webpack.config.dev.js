@@ -14,7 +14,7 @@ module.exports = {
   ,	plugins: [
 		new webpack.HotModuleReplacementPlugin()
 	  ,	new webpack.NoErrorsPlugin()
-	  , new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+//	  , new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
 	],
 	module: {
 		loaders: [

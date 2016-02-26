@@ -5,6 +5,7 @@ module.exports = {
 	devtool: 'source-map',
 	entry: {
 		app: './app/main'
+/*
   	  , vendors: [
   	  		'moment'
   	  	  // , 'history'
@@ -19,6 +20,7 @@ module.exports = {
 		  , 'redux'
 		  , 'redux-simple-router'
   	  	]
+*/
 	},
 	output: {
 		path: path.join(__dirname, '../dist'),
@@ -37,7 +39,7 @@ module.exports = {
 				warnings: false
 			}
 		})
-	  , new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+//	  , new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
 	],
 	module: {
 		loaders: [

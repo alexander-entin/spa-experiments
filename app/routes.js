@@ -7,6 +7,7 @@ import Settings from './components/Settings'
 export default (
   	<Route          component={CoreLayout} path='/'>
     	<IndexRoute component={Home} />
+    	<Route      component={Home}       path='/spa-experiments' />
     	<Route      component={Settings}   path='/settings' />
   	</Route>
 )
