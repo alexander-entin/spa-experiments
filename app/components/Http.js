@@ -24,7 +24,7 @@ export default class Http extends Component {
 			setTimeout(() => {
 				console.log('Http.response', res)
 				onSuccess && onSuccess(res)
-			}, 2000)
+			}, 3000)
 		})
 	}
 }

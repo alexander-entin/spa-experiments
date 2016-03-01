@@ -5,19 +5,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" >
+	<!--link rel="stylesheet" href="/static/core.css" -->
 </head>
 <body>
-	<div id="root" class="layout"></div>
-
+	<div id="zombie" class="layout"></div>
 	<script>
 		var html = window.localStorage && localStorage.html
-		if (html) document.getElementById('root').innerHTML = html
+		if (html) document.getElementById('zombie').innerHTML = html
 	</script>
+	<div id="root" class="layout" style='display:none'></div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.slim.min.js"></script>
 
 	<!--script src="/dist/vendors.js"></script-->
-	<script src="dist/app.js"></script>
+	<script src="/dist/app.js"></script>
+
+	<script src="//ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.min.js"></script>
+	<script src="//cdn3.devexpress.com/jslib/15.2.5/js/dx.all.js"></script>
+
+	<script>
+		document.getElementById('zombie').style = 'display: none'
+		document.getElementById('zombie').innerHTML = ''
+		document.getElementById('root').style = ''
+		render()
+	</script>
+
 </body>
 </html>

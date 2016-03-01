@@ -11,8 +11,8 @@ import reducers from './reducers/index'
 import routes from './routes'
 
 let state = localStorage.state
-let history = createBrowserHistory()
 if (state) state = JSON.parse(state)
+let history = createBrowserHistory()
 let store = compose(
 	applyMiddleware(/*thunk*/)
   , global.devToolsExtension ? devToolsExtension() : f => f

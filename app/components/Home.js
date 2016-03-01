@@ -3,27 +3,30 @@ import { connect } from 'react-redux'
 import controlActions from '../actions/control'
 import dataActions from '../actions/data'
 import Http from './Http'
-import Chart from './Chart'
+import Chart from './DxChart'
 
 let select = state => state
 
 function mockChartData() {
-	return ['data1', 'data2', 'data3'].map(function(name) {
-		var a = [name]
-		for (var i = 0; i < 6; i++) {
-			a.push(Math.random() * 500)
-		}
-		return a
-	})
+	var a = []
+	for (var i = 0; i < 11; i++) {
+		a.push({
+			year: 2000 + i + ''
+		  , apples: Math.random() * 500
+		  , bananas: Math.random() * 500
+		  , oranges: Math.random() * 500
+		})
+	}
+	return a
 }
 
 export class Home extends Component {
 	render() {
 		let { props } = this
-		let types = ['line', 'spline', 'bar', 'step', 'area-step', 'area', 'area-spline', 'pie', 'donut']
+		let types = ['line', 'spline', 'area', 'bar', 'fullStackedLine', 'fullStackedArea', 'fullStackedBar']
 		let padding = { padding: 10 }
 		let background = { background: '#dddddd' }
-		let chart = props.chart.data ? <Chart id="chart" {...props.chart} /> : null
+		let chart = props.chart.dataSource ? <Chart id="chart" {...props.chart} /> : null
 
 		setTimeout(() => {
 			localStorage.html = document.getElementById('root').innerHTML
@@ -34,7 +37,7 @@ export class Home extends Component {
 			<div>
 				<Http
 					uri={props.data}
-					onSuccess={() => props.DATA_LOAD({ data: { columns: mockChartData(), type: props.data }})}
+					onSuccess={() => props.DATA_LOAD({ data: mockChartData(), type: props.data })}
 				/>
 				<div style={{...padding, ...background}}>
 					{types.map((x) => (
