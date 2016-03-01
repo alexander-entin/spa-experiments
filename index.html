@@ -10,6 +10,11 @@
 <body>
 	<div id="root" class="layout"></div>
 
+	<script>
+		var html = window.localStorage && localStorage.html
+		if (html) document.getElementById('root').innerHTML = html
+	</script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
 
 	<!--script src="/dist/vendors.js"></script-->

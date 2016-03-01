@@ -10,21 +10,30 @@ import * as utils from './utils'
 import reducers from './reducers/index'
 import routes from './routes'
 
+let state = localStorage.state
 let history = createBrowserHistory()
+if (state) state = JSON.parse(state)
 let store = compose(
 	applyMiddleware(/*thunk*/)
   , global.devToolsExtension ? devToolsExtension() : f => f
-)(createStore)(reducers)
+)(createStore)(reducers, state)
+
 syncReduxAndRouter(history, store)
 
-ReactDOM.render(
-	<Provider store={store}>
-		<Router history={history}>
-			{routes}
-		</Router>
-	</Provider>
-  , document.getElementById('root')
-)
+function render() {
+	ReactDOM.render(
+		<Provider store={store}>
+			<Router history={history}>
+				{routes}
+			</Router>
+		</Provider>
+	  , document.getElementById('root')
+	)
+}
+
+render()
+
+global.render = render
 
 if (module.hot) {
 	module.hot.accept('./reducers', () => {
@@ -32,3 +41,5 @@ if (module.hot) {
   		store.replaceReducer(nextRootReducer)
 	})
 }
+
+global.R = R

@@ -5,7 +5,17 @@ import dataActions from '../actions/data'
 import Http from './Http'
 import Chart from './Chart'
 
-let select = (state) => ({ chart: state.chart, data: state.data })
+let select = state => state
+
+function mockChartData() {
+	return ['data1', 'data2', 'data3'].map(function(name) {
+		var a = [name]
+		for (var i = 0; i < 6; i++) {
+			a.push(Math.random() * 500)
+		}
+		return a
+	})
+}
 
 export class Home extends Component {
 	render() {
@@ -13,11 +23,18 @@ export class Home extends Component {
 		let types = ['line', 'spline', 'bar', 'step', 'area-step', 'area', 'area-spline', 'pie', 'donut']
 		let padding = { padding: 10 }
 		let background = { background: '#dddddd' }
+		let chart = props.chart.data ? <Chart id="chart" {...props.chart} /> : null
+
+		setTimeout(() => {
+			localStorage.html = document.getElementById('root').innerHTML
+			localStorage.state = JSON.stringify(props)
+		}, 500)
+
 		return (
 			<div>
 				<Http
 					uri={props.data}
-					onSuccess={props.DATA_LOAD}
+					onSuccess={() => props.DATA_LOAD({ data: { columns: mockChartData(), type: props.data }})}
 				/>
 				<div style={{...padding, ...background}}>
 					{types.map((x) => (
@@ -25,16 +42,14 @@ export class Home extends Component {
 							<input type="radio" name="chart-type"
 								id={x}
 								value={x}
-								checked={x === props.chart.data.type}
-								onChange={() => {
-									return props.CHART_TYPE(x)
-								}}
+								checked={x === props.data}
+								onChange={() => props.CHART_TYPE(x)}
 							/>
 							{x}
 						</label>
 					))}
 				</div>
-				<Chart id="chart" {...props.chart} />
+				{chart}
 			</div>
 		)
 	}
