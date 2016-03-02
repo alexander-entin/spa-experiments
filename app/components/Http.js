@@ -20,11 +20,9 @@ export default class Http extends Component {
 		let { onSuccess, onError } = props
 		xhr(Object.assign({}, props), function (err, res, body) {
 			// TODO check res.statusCode
+			console.log('Http.response', err, res)
 			if (err) return onError && onError(err)
-			setTimeout(() => {
-				console.log('Http.response', res)
-				onSuccess && onSuccess(res)
-			}, 3000)
+			onSuccess && onSuccess(res)
 		})
 	}
 }

@@ -36,7 +36,7 @@ export class Home extends Component {
 		return (
 			<div>
 				<Http
-					uri={props.data}
+					uri={'https://httpbin.org/delay/0.2#' + props.data}
 					onSuccess={() => props.DATA_LOAD({ data: mockChartData(), type: props.data })}
 				/>
 				<div style={{...padding, ...background}}>
