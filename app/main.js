@@ -16,7 +16,7 @@ let history = createBrowserHistory()
 let store = compose(
 	applyMiddleware(/*thunk*/)
   , global.devToolsExtension ? devToolsExtension() : f => f
-)(createStore)(reducers, state)
+)(createStore)(reducers/*, state*/)
 
 syncReduxAndRouter(history, store)
 

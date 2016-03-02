@@ -8,13 +8,12 @@
 	<!--link rel="stylesheet" href="/static/core.css" -->
 </head>
 <body>
+	<div id="root" class="layout" style='display:none'></div>
 	<div id="zombie" class="layout"></div>
 	<script>
 		var html = window.localStorage && localStorage.html
 		if (html) document.getElementById('zombie').innerHTML = html
 	</script>
-
-	<div id="root" class="layout" style='display:none'></div>
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.slim.min.js"></script>
 

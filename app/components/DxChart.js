@@ -30,7 +30,7 @@ export default class Chart extends Component {
 				console.log('no Dx')
 				return
 			}
-			this.chart = $chart.dxChart({ ...props, animation: false }).dxChart("instance")
+			this.chart = $chart.dxChart({ ...props, animation: true }).dxChart("instance")
 			console.log('rendered')
 		}
 	}
