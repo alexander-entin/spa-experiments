@@ -5,23 +5,17 @@ module.exports = {
 	devtool: 'source-map',
 	entry: {
 		app: './app/main'
-/*
-  	  , vendors: [
+/*  	  , vendors: [
   	  		'moment'
-  	  	  // , 'history'
-  	  	  // , 'material-ui'
-  	  	  // , 'pouchdb'
-  	  	  , 'ramda'
+  	  	  , 'history'
   	  	  , 'react'
 		  , 'react-dom'
 		  , 'react-redux'
 		  , 'react-router'
-		  , 'react-tap-event-plugin'
 		  , 'redux'
 		  , 'redux-simple-router'
   	  	]
-*/
-	},
+*/	},
 	output: {
 		path: path.join(__dirname, '../dist'),
 		filename: 'app.js',

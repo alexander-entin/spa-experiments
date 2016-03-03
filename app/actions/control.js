@@ -1,4 +1,4 @@
-import { createActions } from '../utils'
+import { createActions } from '../tools/redux'
 
 export default createActions([
 	'CHART_TYPE'

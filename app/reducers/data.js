@@ -1,4 +1,4 @@
-import { createReducer } from '../utils'
+import { createReducer } from '../tools/redux'
 
 const initialState = 'line'
 

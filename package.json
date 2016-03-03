@@ -60,8 +60,10 @@
   },
   "dependencies": {
     "babel-core": "^6.4.0",
-    "d3": "^3.5.13",
     "history": "^1.17.0",
+    "immutable": "^3.7.6",
+    "lodash": "^4.6.1",
+    "moment": "^2.11.2",
     "ramda": "^0.19.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",

@@ -1,5 +1,6 @@
+//import $ from 'jquery'
 import React, { Component } from 'react'
-import R from 'ramda'
+import equals from '../tools/equals'
 
 export default class Chart extends Component {
 	render() {
@@ -14,7 +15,7 @@ export default class Chart extends Component {
 		this.draw(this.props)
 	}
 	componentWillReceiveProps(next) {
-		if (this.chart && R.equals(this.props, next)) {
+		if (this.chart && equals(this.props, next)) {
 			console.log('no change')
 			return
 		}

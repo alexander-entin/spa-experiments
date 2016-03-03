@@ -1,5 +1,5 @@
-import R from 'ramda'
 import React, { Component } from 'react'
+import equals from '../tools/equals'
 import xhr from 'xhr'
 
 export default class Http extends Component {
@@ -13,7 +13,7 @@ export default class Http extends Component {
 		this.xhr(this.props)
 	}
 	componentWillReceiveProps(props) {
-		if (!R.equals(this.props.uri, props.uri)) this.xhr(props)
+		if (!equals(this.props, props)) this.xhr(props)
 	}
 	xhr(props) {
 		console.log('Http.request', props)

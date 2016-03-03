@@ -1,11 +1,11 @@
-import { createReducer } from '../utils'
+import { createReducer } from '../tools/redux'
 
 const initialState =  {
 	commonSeriesSettings: {
 		argumentField: 'year'
 	}
   , series: [
-  		{
+		  {
 			valueField: "apples"
 		  , name: 'Apples'
 		  , color: 'red'

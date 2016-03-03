@@ -16,7 +16,7 @@ app.use(require('webpack-hot-middleware')(compiler));
 /**Decalring a static library
 * All files in this library will be accesible through direct url
 **/
-app.use(express.static(__dirname + '/static'));
+app.use('/static', express.static('static'));
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, '../index.html'));
