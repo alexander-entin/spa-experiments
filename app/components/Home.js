@@ -31,7 +31,7 @@ export class Home extends Component {
 		setTimeout(() => {
 			localStorage.html = document.getElementById('root').innerHTML
 			localStorage.state = JSON.stringify(props)
-		}, 500)
+		}, 1100)
 
 		return (
 			<div>

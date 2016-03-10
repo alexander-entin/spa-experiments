@@ -2,7 +2,7 @@
 //import R from 'ramda'
 //import _ from 'lodash'
 //import moment from 'moment'
-//import I from 'immutable'
+import I from 'immutable'
 import './tools/polyfills'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -47,3 +47,5 @@ if (module.hot) {
 }
 
 //global.jQuery = $
+global.I = I
+global.log = console.log.bind(console)
