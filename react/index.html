@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	
+	<title>React</title>
+
+	<!--link rel="stylesheet" href="static/css/core.css"-->
+</head>
+<body>
+	<div id="root" class="layout"></div>
+	<!--div id="root" class="layout" style='display:none'></div>
+	<div id="zombie" class="layout"></div>
+	<script>
+		var html = window.localStorage && localStorage.html
+		if (html) document.getElementById('zombie').innerHTML = html
+	</script-->
+
+	<!--script src="dist/vendors.js"></script-->
+	<script src="dist/app.js"></script>
+
+	<!--script>
+		document.getElementById('zombie').style = 'display: none'
+		document.getElementById('zombie').innerHTML = ''
+		document.getElementById('root').style = ''
+		render()
+	</script-->
+	<link rel="import" href="//polygit.org/components/google-chart/google-chart.html">
+</body>
+</html>

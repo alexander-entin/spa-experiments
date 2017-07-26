@@ -1,0 +1,1 @@
+export default { fontWeight: 'bold' }
